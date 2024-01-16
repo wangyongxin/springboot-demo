@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.5</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.example</groupId>
+    <artifactId>demo1</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>demo1</name>
+    <description>demo1</description>
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.sentry</groupId>
+            <artifactId>sentry-logback</artifactId>
+            <version>7.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <builder>paketobuildpacks/builder-jammy-base:latest</builder>
+                    </image>
+                </configuration>
+            </plugin>
+            <!--<plugin>
+                <groupId>io.sentry</groupId>
+                <artifactId>sentry-maven-plugin</artifactId>
+                <version>0.0.6</version>
+                <extensions>true</extensions>
+                <configuration>
+                    &lt;!&ndash; for showing output of sentry-cli &ndash;&gt;
+                    <debugSentryCli>true</debugSentryCli>
+
+                    <org>beijing-le</org>
+
+                    <project>java-spring-boot</project>
+
+                    &lt;!&ndash; in case you're self hosting, provide the URL here &ndash;&gt;
+                    &lt;!&ndash;<url>http://localhost:8000/</url>&ndash;&gt;
+
+                    &lt;!&ndash; provide your auth token via SENTRY_AUTH_TOKEN environment variable &ndash;&gt;
+&lt;!&ndash;                    <authToken>${env.SENTRY_AUTH_TOKEN}</authToken>&ndash;&gt;
+                    <authToken>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</authToken>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            &lt;!&ndash;
+                            Generates a JVM (Java, Kotlin, etc.) source bundle and uploads your source code to Sentry.
+                            This enables source context, allowing you to see your source
+                            code as part of your stack traces in Sentry.
+                            &ndash;&gt;
+                            <goal>uploadSourceBundle</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
+        </plugins>
+    </build>
+
+</project>
